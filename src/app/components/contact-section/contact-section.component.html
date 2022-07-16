@@ -1,0 +1,200 @@
+
+
+<div class="bg-white py-16 px-4 overflow-hidden sm:px-6 lg:px-8 lg:py-24">
+    <div class="relative max-w-xl mx-auto">
+      <svg class="absolute left-full transform translate-x-1/2" width="404" height="404" fill="none" viewBox="0 0 404 404" aria-hidden="true">
+        <defs>
+          <pattern id="85737c0e-0916-41d7-917f-596dc7edfa27" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="404" height="404" fill="url(#85737c0e-0916-41d7-917f-596dc7edfa27)" />
+      </svg>
+      <svg class="absolute right-full bottom-0 transform -translate-x-1/2" width="404" height="404" fill="none" viewBox="0 0 404 404" aria-hidden="true">
+        <defs>
+          <pattern id="85737c0e-0916-41d7-917f-596dc7edfa27" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="404" height="404" fill="url(#85737c0e-0916-41d7-917f-596dc7edfa27)" />
+      </svg>
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Contact sales</h2>
+        <p class="mt-4 text-lg leading-6 text-gray-500">Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor lacus arcu.</p>
+      </div>
+      <app-alert
+        *ngIf="isAlertOpened" 
+        (closedAlert)="alertClose($event)"
+        title="modi nisi doloribus id ex quos maxime quam." 
+        description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium quo, voluptate reiciendis quae eius iste quaerat dignissimos illo, excepturi similique eligendi repudiandae,">
+      </app-alert>
+       
+      <div class="mt-12">
+        <!-- <app-alert></app-alert> -->
+        <form (ngSubmit)="f.form.valid && sendRequest()" #f="ngForm" novalidate class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+          <div class="">
+            <label for="first-name" class="block text-sm font-medium text-gray-700">First name*</label>
+            <div class="mt-1 relative rounded-md shadow-sm">
+              <input 
+                type="text" 
+                name="first-name" 
+                id="first-name" 
+                autocomplete="given-name" 
+                required
+                [(ngModel)]="firstName"
+                #name="ngModel"
+                class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+              <div
+                *ngIf="name.invalid && (name.dirty || name.touched)" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                <!-- Heroicon name: solid/exclamation-circle -->
+                <svg class="h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </div>
+            <p 
+              *ngIf="name.invalid && (name.dirty || name.touched )"
+              class="mt-2 text-sm text-red-600" id="email-error">Your password must be less than 4 characters.</p>
+          </div>
+
+          <div>
+            <label for="last-name" class="block text-sm font-medium text-gray-700">Last name*</label>
+            <div class="mt-1 relative rounded-md shadow-sm">
+              <input 
+                type="text" 
+                name="last-name" 
+                id="last-name" 
+                autocomplete="family-name" 
+                required
+                [(ngModel)]="lastName1"
+                #lastName="ngModel"
+                class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+              <div 
+                *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+                class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                <!-- Heroicon name: solid/exclamation-circle -->
+                <svg class="h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </div>
+            <p 
+              *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+              class="mt-2 text-sm text-red-600" id="email-error">Your password must be less than 4 characters.</p>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label for="company" class="block text-sm font-medium text-gray-700">Company</label>
+            <div class="mt-1 relative rounded-md shadow-sm">
+              <input type="text" name="company" id="company" autocomplete="organization" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+              <!-- <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                Heroicon name: solid/exclamation-circle
+                <svg class="h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </div> -->
+            </div>
+            <!-- <p class="mt-2 text-sm text-red-600" id="email-error">Your password must be less than 4 characters.</p> -->
+          </div>
+
+          <div class="sm:col-span-2">
+            <label for="email" class="block text-sm font-medium text-gray-700">Email*</label>
+            <div class="mt-1 relative rounded-md shadow-sm">
+              <input 
+                id="email" 
+                name="email" 
+                type="email" 
+                autocomplete="email" 
+                required
+                [(ngModel)]="email1"
+                #email="ngModel"
+                class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+              <div 
+                *ngIf="email.invalid && (email.dirty || email.touched)"
+                class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                <!-- Heroicon name: solid/exclamation-circle -->
+                <svg class="h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </div>
+            <p 
+              *ngIf="email.invalid && (email.dirty || email.touched)"
+              class="mt-2 text-sm text-red-600" id="email-error">Your password must be less than 4 characters.</p>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label for="phone-number" class="block text-sm font-medium text-gray-700">Phone Number</label>
+            <div class="mt-1 relative rounded-md shadow-sm">
+              <div class="absolute inset-y-0 left-0 flex items-center">
+                <label for="country" class="sr-only">Country</label>
+                <select id="country" name="country" class="h-full py-0 pl-4 pr-8 border-transparent bg-transparent text-gray-500 focus:ring-indigo-500 focus:border-indigo-500 rounded-md">
+                  <option>US</option>
+                  <option>CA</option>
+                  <option>EU</option>
+                </select>
+              </div>
+              <input type="text" name="phone-number" id="phone-number" autocomplete="tel" class="py-3 px-4 block w-full pl-20 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" placeholder="+1 (555) 987-6543">
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label for="message" class="block text-sm font-medium text-gray-700">Message*</label>
+            <div class="mt-1 relative rounded-md shadow-sm">
+              <textarea 
+                id="message" 
+                name="message"
+                rows="4" 
+                required
+                [(ngModel)]="message1"
+                #message="ngModel"
+                class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"></textarea>
+              <div
+                *ngIf="message.invalid && (message.dirty || message.touched)"
+                class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                <!-- Heroicon name: solid/exclamation-circle -->
+                <svg class="h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </div>
+            <p 
+              *ngIf="message.invalid && (message.dirty || message.touched)" 
+              class="mt-2 text-sm text-red-600" id="email-error">Your password must be less than 4 characters.</p>
+          </div>
+
+          <div class="sm:col-span-2">
+            <div class="flex items-start">
+              <div class="flex-shrink-0">
+                <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
+                <button 
+                  (click)="toggleTermsPolAccept()"
+                  type="button" 
+                  [ngClass]="isTermsPolAccept?'bg-indigo-600':'bg-gray-200'"
+                  class="relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" role="switch" aria-checked="false">
+                  <span class="sr-only">Agree to policies</span>
+                  <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
+                  <span 
+                  [ngClass]="isTermsPolAccept?'translate-x-5':'translate-x-0'"
+                    aria-hidden="true"
+                    class=" inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"></span>
+                </button>
+              </div>
+              <div class="ml-3">
+                <p class="text-base text-gray-500">
+                  By selecting this, you agree to the
+                  <a href="#" class="font-medium text-gray-700 underline">Privacy Policy</a>
+                  and
+                  <a href="#" class="font-medium text-gray-700 underline">Cookie Policy</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="sm:col-span-2">
+            <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Let's talk</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
